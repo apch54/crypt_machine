@@ -134,14 +134,13 @@ def arr_to_file(path, ar):  # save file
 # key is the crypt key and suf is ".cypted"
 def crypt_file(path, out_f, key, suf, limit):
     # file -> crypt array with xor operator result
-    int_crypted_arr = file_to_int_xor(path, key, limit)
-    '''  # now reverse the int_crypted_arr
-    '# It's necessary to shuffes the cards a little bit more
-    int_crypted_arr.reverse()
-    '''
+    int_crypted_arr = file_to_int_xor(path, key, limit)   
     # int -> hex array
     hex_crypted_arr = int_to_hex_arr(int_crypted_arr)
-    # save the cryped aff -> file
+    # now reverse the int_crypted_arr
+    # It's necessary to shuffes the cards a little bit more
+    int_crypted_arr.reverse()    
+    # save the cryped aff -> file    
     arr_to_file(out_f, hex_crypted_arr)
 
 
